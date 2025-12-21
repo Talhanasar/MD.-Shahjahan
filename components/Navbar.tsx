@@ -149,76 +149,55 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile/Tablet menu drawer (shows on < lg) */}
-      {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-white/95 backdrop-blur-sm p-6  ">
-          <div className="container mx-auto px-2 bg-white">
-            <div className="flex items-center justify-between mb-6">
-              <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-3">
-                <div className="relative w-10 h-10 shrink-0 overflow-hidden rounded-full">
-                  <Image src={candidateData.images.logo} alt={candidateData.firstName} fill className="object-cover" />
-                </div>
-                <div>
-                  <div className="font-serif text-lg font-bold text-teal-900">{candidateData.navName}</div>
-                  <div className="text-xs text-stone-500">{candidateData.tagline}</div>
-                </div>
-              </Link>
+      {/* Mobile Menu Dropdown */}
+      <div 
+        className={`lg:hidden absolute top-full left-0 w-full bg-white border-b border-stone-100 shadow-2xl overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? "max-h-[600px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
+        }`}
+      >
+        <div className="container mx-auto px-4 py-6 space-y-6">
+          <nav className="flex flex-col space-y-1">
+            {navLinks.map((link) => {
+              const active = isActive(link.href)
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                    active ? "bg-teal-50 text-teal-900" : "text-stone-600 hover:bg-stone-50 hover:text-teal-800"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+          </nav>
 
-              <button
-                aria-label="Close menu"
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center justify-center w-10 h-10 rounded-full hover:bg-stone-100"
-              >
-                <X className="w-5 h-5 text-stone-700" />
-              </button>
-            </div>
-
-            <nav className="flex flex-col gap-4 mb-6" >
-              {navLinks.map((link) => {
-                const active = isActive(link.href)
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`block px-3 py-3 rounded-lg text-base font-medium ${
-                      active ? "bg-teal-50 text-teal-900" : "text-stone-700 hover:bg-stone-50"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              })}
-            </nav>
-
-            <div className="flex flex-col gap-3">
-              <Link href="/form/volunteer" onClick={() => setMobileOpen(false)}>
-                <Button asChild className="w-full bg-transparent border border-teal-700 text-teal-800 rounded-full h-12 hover:text-white hover:bg-teal-900">
-                  <p>{t.buttons.volunteer}</p>
-                </Button>
-              </Link>
-
-              <Link href="#donate" onClick={() => setMobileOpen(false)}>
-                <Button asChild className="w-full bg-teal-800 text-white rounded-full h-12 hover:bg-teal-900">
-                  <p>{t.buttons.donate}</p>
-                </Button>
-              </Link>
-
-              <Link href={candidateData.socialMedia?.facebook ?? "/"} onClick={() => setMobileOpen(false)}>
-                <div className="mt-2 flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full overflow-hidden ring-1 ring-teal-100 relative">
-                    <Image src={candidateData.images.sideImage ?? "/humam/bnplogo.png"} alt="party" fill className="object-cover" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-stone-900">Bangladesh Nationalist Party</div>
-                    <div className="text-xs text-stone-500">Follow on Facebook</div>
-                  </div>
-                </div>
-              </Link>
-            </div>
+          <div className="grid grid-cols-2 gap-3 pt-2 border-t border-stone-100">
+            <Link href="/form/volunteer" onClick={() => setMobileOpen(false)}>
+              <Button variant="outline" className="w-full border-teal-200 text-teal-800 hover:bg-teal-50 rounded-full">
+                {t.buttons.volunteer}
+              </Button>
+            </Link>
+            
+            <Link href="#donate" onClick={() => setMobileOpen(false)}>
+              <Button className="w-full bg-teal-800 hover:bg-teal-900 text-white rounded-full shadow-lg shadow-teal-900/10">
+                {t.buttons.donate}
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="flex items-center justify-center gap-2 pt-2 pb-2">
+             <span className="text-xs text-stone-400 font-medium uppercase tracking-widest">Follow us</span>
+             <Link href={candidateData.socialMedia?.facebook ?? "/"} className="w-8 h-8 flex items-center justify-center rounded-full bg-stone-50 text-teal-700 hover:bg-teal-100 transition-colors">
+               <div className="relative w-5 h-5">
+                 <Image src={candidateData.images.sideImage ?? "/humam/bnplogo.png"} alt="party" fill className="object-cover" />
+               </div>
+             </Link>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }
