@@ -58,19 +58,19 @@ export const candidateData = {
   title: "BNP Nomination Announcement – Noakhali Subarnachar 4",
   description: "Md. Shahjahan shares his reaction after being officially selected as the BNP candidate for Noakhali–Subarnachar 4 constituency.",
   url: "https://www.youtube.com/embed/PZGM_IqSnOo",
-  thumbnail: "/humam/video_thumb1.jpg"
+  thumbnail: "/shahjahan/video_thumb1.jpg"
 },
 {
   title: "Support From District BNP Leadership",
   description: "Statement of support from A.B.M. Zakaria, Joint Convenor of the District BNP, for the candidate and the BNP.",
   url: "https://www.youtube.com/embed/R1dHf-Iq7zo",
-  thumbnail: "/humam/video_thumb2.jpg"
+  thumbnail: "/shahjahan/video_thumb2.jpg"
 },
 {
   title: "Md. Shahjahan on Politics & Vision",
   description: "The candidate discusses his political stance, future plans, and dedication to public service.",
   url: "https://www.youtube.com/embed/L-PArWRH1VQ",
-  thumbnail: "/humam/video_thumb3.jpg"
+  thumbnail: "/shahjahan/video_thumb3.jpg"
 }
 
   ],

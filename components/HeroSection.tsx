@@ -100,7 +100,7 @@ export default function HeroSection() {
           <div className="lg:col-span-2 relative order-3 lg:order-2 flex justify-center items-center pointer-events-none z-30 py-8 lg:py-0">
              <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 animate-float-up">
                <Image
-                 src="/humam/dhan.png"
+                 src="/shahjahan/dhan.png"
                  alt="Sheaf of Paddy"
                  fill
                  className="object-contain drop-shadow-2xl opacity-95"
@@ -134,7 +134,7 @@ export default function HeroSection() {
                   <div className="absolute bottom-8 sm:bottom-12 left-2 sm:left-4 lg:-left-4 xl:-left-8 z-20 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-xl shadow-xl border border-teal-100 animate-pulse" style={{ animationDuration: '4s' }}>
                     <div className="flex items-center gap-2 sm:gap-3">
                        <div className="bg-linear-to-br from-red-100 to-red-50 p-2 rounded-full">
-                         <Image src="/humam/dhan.png" alt="Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                         <Image src="/shahjahan/dhan.png" alt="Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                        </div>
                        <div>
                          <p className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-wide">{t.hero.voteBadge.prefix}</p>
