@@ -1,101 +1,36 @@
-# IEB Election Site
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This project contains the frontend application for the IEB Election Site, built with Next.js.
+## Getting Started
 
-## Prerequisites
-
-Before you begin, ensure you have the following installed on your system:
-- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
-- [npm](https://www.npmjs.com/) (comes with Node.js) or [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/)
-
-## Downloading the Project from Git
-
-### Option 1: Clone the Repository (Recommended)
-
-If you have Git installed, clone the repository using:
+First, run the development server:
 
 ```bash
-git clone https://github.com/Talhanasar/IEB-Election-Site.git
-cd IEB-Election-Site
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### Option 2: Download as ZIP
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. Navigate to the repository on GitHub/GitLab
-2. Click the "Code" or "Download" button
-3. Select "Download ZIP"
-4. Extract the ZIP file to your desired location
-5. Open a terminal/command prompt in the extracted folder
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Starting the Frontend Server
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
+## Learn More
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-   
-   Or if you're using yarn:
-   ```bash
-   yarn install
-   ```
-   
-   Or if you're using pnpm:
-   ```bash
-   pnpm install
-   ```
+To learn more about Next.js, take a look at the following resources:
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-   
-   Or if you're using yarn:
-   ```bash
-   yarn dev
-   ```
-   
-   Or if you're using pnpm:
-   ```bash
-   pnpm dev
-   ```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-4. **Open your browser:**
-   The application will be available at [http://localhost:3000](http://localhost:3000)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-   You should see the application running. The page will automatically reload when you make changes to the code.
+## Deploy on Vercel
 
-## Available Scripts
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- `npm run dev` - Starts the development server
-- `npm run build` - Builds the application for production
-- `npm run start` - Starts the production server (requires building first)
-- `npm run lint` - Runs ESLint to check code quality
-
-## Troubleshooting
-
-- **Port 3000 already in use:** If port 3000 is already occupied, you can specify a different port:
-  ```bash
-  npm run dev -- -p 3001
-  ```
-
-- **Dependencies not installing:** Try deleting `node_modules` and `package-lock.json`, then run `npm install` again.
-
-- **Module not found errors:** Ensure you're in the `frontend` directory when running npm commands.
-
-## Project Structure
-
-```
-IEB-Election-Site/
-├── frontend/          # Next.js frontend application
-│   ├── app/          # Application pages and layouts
-│   ├── components/   # React components
-│   ├── lib/          # Utility functions
-│   └── public/       # Static assets
-└── README.md         # This file
-```
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
