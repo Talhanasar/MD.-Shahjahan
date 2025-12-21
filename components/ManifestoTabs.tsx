@@ -103,15 +103,15 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
                 <button
                   key={topic.slug}
                   onClick={() => setActiveSlug(topic.slug)}
-                  className={`inline-flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all text-sm font-semibold shadow-sm ${
+                  className={`inline-flex items-center gap-3 px-5 py-2.5 rounded-full border transition-all text-sm font-semibold shadow-md ${
                     active
-                      ? "bg-teal-900 text-white shadow-2xl transform scale-100"
-                      : "bg-white text-teal-800 border-teal-200 hover:bg-teal-50"
+                      ? "bg-gradient-to-r from-teal-800 to-teal-900 text-white shadow-xl shadow-teal-900/30 transform scale-105 border-teal-700"
+                      : "bg-white text-teal-800 border-teal-200 hover:bg-gradient-to-r hover:from-teal-50 hover:to-green-50 hover:border-teal-300 hover:shadow-lg"
                   }`}
                 >
                   <span
-                    className={`inline-flex items-center justify-center w-7 h-7 rounded-full ${
-                      active ? "bg-white/15 text-white" : "bg-teal-50 text-teal-800"
+                    className={`inline-flex items-center justify-center w-7 h-7 rounded-full transition-all ${
+                      active ? "bg-white/20 text-white" : "bg-gradient-to-br from-teal-100 to-green-100 text-teal-800"
                     }`}
                     aria-hidden
                   >
@@ -126,9 +126,9 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
 
         {/* Centered content card */}
         <div className="max-w-5xl mx-auto">
-          <article className="bg-white rounded-2xl p-8 border border-stone-200 shadow-sm">
+          <article className="bg-gradient-to-br from-white to-teal-50/20 rounded-2xl p-8 border-2 border-teal-100 shadow-xl hover:shadow-2xl transition-shadow">
             <header className="mb-6">
-              <h2 className="text-4xl font-serif font-bold text-teal-900 mb-3">{activeTopic?.title}</h2>
+              <h2 className="text-4xl font-serif font-bold bg-gradient-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent mb-3">{activeTopic?.title}</h2>
               {activeTopic?.summary && <p className="text-stone-600">{activeTopic.summary}</p>}
             </header>
 
@@ -136,10 +136,10 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
               {(activeTopic?.sections || []).map((sec, i) => {
                 const Icon = ICON_MAP[sec.icon ?? activeTopic.icon ?? "MapPin"] ?? MapPin
                 return (
-                  <div key={i} className="bg-stone-50 rounded-xl p-6 border border-stone-100 flex gap-6 items-start">
+                  <div key={i} className="bg-gradient-to-br from-stone-50 to-teal-50/30 rounded-xl p-6 border border-teal-100 flex gap-6 items-start hover:shadow-md transition-shadow">
                     <div className="min-w-[56px] flex-shrink-0">
-                      <div className="w-12 h-12 rounded-lg bg-teal-50 border border-teal-100 flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-teal-800" />
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-teal-500 to-green-500 border border-teal-200 flex items-center justify-center shadow-md">
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
                     </div>
 
@@ -160,7 +160,7 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
 
             {/* CTA block (if present) */}
             {activeTopic?.cta && (
-              <div className="mt-8 p-6 rounded-xl bg-teal-800 text-white text-center">
+              <div className="mt-8 p-6 rounded-xl bg-gradient-to-r from-teal-800 to-green-800 text-white text-center shadow-lg">
                 {activeTopic.cta.title && <h4 className="text-xl font-bold">{activeTopic.cta.title}</h4>}
                 {activeTopic.cta.text && <p className="mt-2">{activeTopic.cta.text}</p>}
                 <div className="mt-4">

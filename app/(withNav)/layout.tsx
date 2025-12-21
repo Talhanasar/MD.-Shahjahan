@@ -5,8 +5,8 @@ import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "IEB Election Site",
-  description: "IEB Election Site",
+  title: "Md. Shahjahan - Official Campaign Site",
+  description: "Official campaign website for Md. Shahjahan",
 };
 
 export default function RootLayout({

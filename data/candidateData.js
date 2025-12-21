@@ -11,22 +11,22 @@ export const candidateData = {
   
   // Images
   images: {
-    logo: "/humam/pic1.png",
-    hero: "/humam/pic1.png",
-    about: "/humam/pic2.jpg",
-    banner: "/humam/cover1.jpg",
-    banner2: "/humam/bnp_logo.png",
-    electoralSymbol: "/humam/marka.jpg",
-    bnpPoster: "/humam/Bnp.jpg",
-    getInvolved: "/humam/humam_last.png",
-    sideImage: "/humam/bnplogo.png"
+    logo: "/shahjahan/pic_1.png",
+    hero: "/shahjahan/pic_1.png",
+    about: "/shahjahan/pic_2.jpg",
+    banner: "/shahjahan/cover1.jpg",
+    banner2: "/shahjahan/bnp_logo.png",
+    electoralSymbol: "/shahjahan/marka.jpg",
+    bnpPoster: "/shahjahan/Bnp.jpg",
+    getInvolved: "/shahjahan/shahjahan_last.png",
+    sideImage: "/shahjahan/bnplogo.png"
   },
   
   // Bio & Description
   bio: {
     short: "Committed to serving Noakhali-04 with integrity, justice, and progress. Join us in building a better future for our constituency.",
     long: [
-      "Md. Jahangir is a dedicated political leader representing Noakhali-04 under the Bangladesh Nationalist Party. He has actively worked to improve local infrastructure, education, and healthcare while advocating for transparency and accountability in governance.",
+      "Md. Shahjahan is a dedicated political leader representing Noakhali-04 under the Bangladesh Nationalist Party. He has actively worked to improve local infrastructure, education, and healthcare while advocating for transparency and accountability in governance.",
       "His vision is simple yet powerful: a Noakhali-04 where every citizen has access to opportunities, justice is upheld, and development benefits all communities."
     ],
     aboutTitle: "Rooted in Noakhali, Driven by Progress."
@@ -56,7 +56,7 @@ export const candidateData = {
   videos: [
     {
   title: "BNP Nomination Announcement – Noakhali Subarnachar 4",
-  description: "Md. Jahangir shares his reaction after being officially selected as the BNP candidate for Noakhali–Subarnachar 4 constituency.",
+  description: "Md. Shahjahan shares his reaction after being officially selected as the BNP candidate for Noakhali–Subarnachar 4 constituency.",
   url: "https://www.youtube.com/embed/PZGM_IqSnOo",
   thumbnail: "/humam/video_thumb1.jpg"
 },
@@ -67,7 +67,7 @@ export const candidateData = {
   thumbnail: "/humam/video_thumb2.jpg"
 },
 {
-  title: "Md. Jahangir on Politics & Vision",
+  title: "Md. Shahjahan on Politics & Vision",
   description: "The candidate discusses his political stance, future plans, and dedication to public service.",
   url: "https://www.youtube.com/embed/L-PArWRH1VQ",
   thumbnail: "/humam/video_thumb3.jpg"
@@ -76,7 +76,7 @@ export const candidateData = {
   ],
   // Video
   video: {
-    title: "A Message from Md. Jahangir",
+    title: "A Message from Md. Shahjahan",
     description: "Listen to the vision for Noakhali-04 directly from your candidate.",
     url: "https://www.youtube.com/embed/Ub_kbudLFbM",
     thumbnail: ""
@@ -214,7 +214,7 @@ export const candidateData = {
               "Set up engineering and five new technical & vocational colleges affiliated with the local technical university (NSTU).",
               "Promote primary school enrollment with door-to-door outreach and an annual 'school bag' program to reduce dropouts."
             ]
-          }
+          },
         ],
         cta: {
           title: "Support Education",
@@ -504,7 +504,7 @@ export const candidateData = {
       line2: "Noakhali, Bangladesh"
     },
     phone: "+880 1711 111111",
-    email: "office@mdjahangir.com"
+    email: "office@mdshahjahan.com"
   },
   
   // Social Media
@@ -524,10 +524,10 @@ export const candidateData = {
   
   // Footer
   footer: {
-    copyright: "© 2025 Md. Jahangir. All rights reserved.",
+    copyright: "© 2025 Md. Shahjahan. All rights reserved.",
     officeLabel: "Political Office"
   },
-
+  
   // Calendar
   calendar: {
     embedUrl: "https://calendar.google.com/calendar/embed?src=1fafa8ab28415db6a09b018be97495592b38dba0cf79e60af85612ddcfc83e27%40group.calendar.google.com&ctz=Asia%2FDhaka"
@@ -539,25 +539,25 @@ export const candidateData = {
       
       {
         id: 1,
-        src: "/humam/gallery/engagement1.jpg",
+        src: "/shahjahan/gallery/engagement1.jpg",
         alt: "Events",
         category: "Events"
       },
       {
         id: 2,
-        src: "/humam/gallery/event1.jpg",
+        src: "/shahjahan/gallery/event1.jpg",
         alt: "Events",
         category: "Events"
       },
       {
         id: 3,
-        src: "/humam/gallery/event2.jpg",
+        src: "/shahjahan/gallery/event2.jpg",
         alt: "Events",
         category: "Events"
       },
       {
         id: 4,
-        src: "/humam/gallery/statement1.jpg",
+        src: "/shahjahan/gallery/statement1.jpg",
         alt: "Statement",
         category: "Statements"
       }

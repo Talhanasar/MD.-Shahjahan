@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, CheckCircle2 } from "lucide-react"
 import { candidateData } from "@/data/candidateData"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -13,57 +13,73 @@ export default function HeroSection() {
   const t = translations[lang]
 
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-linear-to-br from-stone-50 via-white to-teal-50/30 overflow-hidden">
-      {/* Political pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
-      
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-teal-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-red-200/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-teal-100/10 rounded-full blur-3xl" />
+    <section className="relative min-h-[100vh] flex items-center bg-stone-50 overflow-hidden pt-8 lg:pt-0 pb-12 lg:pb-16">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-[-10%] right-[0%] w-[50%] h-[50%] bg-teal-500/10 rounded-full blur-[100px] animate-pulse duration-[5000ms]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-green-600/10 rounded-full blur-[120px]" />
+        <div className="absolute top-[40%] left-[20%] w-[30%] h-[30%] bg-red-500/5 rounded-full blur-[80px]" />
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.4] bg-[url('/noise.png')] mix-blend-overlay" /> 
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(#0f766e 1px, transparent 1px), linear-gradient(to right, #0f766e 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Grid layout for medium and large screens */}
-        <div className="grid md:grid-cols-2 gap-2 items-center">
-          <div className="space-y-6 order-2 md:order-1 pt-10 md:pt-0">
-            {/* Flex container for the two images */}
-            <div className="flex items-center gap-6 flex-col md:flex-row ">
-              {/* BNP Poster */}
-              <div className="relative w-full md:w-3/4 sm:w-2/3 sm:items-left"> {/* Adjust width for medium and small screens */}
-                <Image
-                  src={candidateData.images.bnpPoster}
-                  alt="BNP Campaign Poster"
-                  width={350}
-                  height={100}
-                  className="object-contain w-full h-auto"
-                  priority
-                />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center relative min-h-[85vh] lg:min-h-0">
+          
+          {/* Text Content (Left Side - 5 columns) */}
+          <div className="lg:col-span-5 space-y-6 lg:space-y-8 order-2 lg:order-1 relative z-20">
+            {/* Party Logo */}
+            <div className="w-full max-w-[280px] sm:max-w-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
+               <Image
+                 src={candidateData.images.bnpPoster}
+                 alt="BNP Logo"
+                 width={500}
+                 height={300}
+                 className="object-contain w-full h-auto"
+               />
+            </div>
+
+            <div className="space-y-4 lg:space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl font-serif font-black leading-[1.1] tracking-tight text-stone-900 drop-shadow-sm animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+                <span className="text-teal-900">{t.hero.firstName}</span>
+                <span className="relative inline-block">
+                  {t.hero.lastName}
+                  <span className="text-red-600 text-4xl sm:text-5xl md:text-6xl">.</span>
+                </span>
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-xl text-stone-600 max-w-xl leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
+                {t.hero.lead}
+                <br className="hidden sm:block" />
+                <span className="text-stone-500 font-normal">{t.hero.bioSecond}</span>
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-teal-800 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-red-500 flex-shrink-0" />
+                <span>{t.hero.tags.democracyFirst}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                <span>{t.hero.tags.economicGrowth}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                <span>{t.hero.tags.socialJustice}</span>
               </div>
             </div>
 
-            {/* Candidate Name - Elegant Typography */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold leading-[1.1] tracking-tight text-stone-900">
-              {t.hero.firstName} {t.hero.lastName}
-              <span className="text-red-600">.</span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-stone-900 max-w-lg leading-relaxed">
-              {t.hero.lead}{" "}
-              <span className="text-lg md:text-xl text-stone-900 max-w-lg leading-relaxed">
-                {t.hero.bioSecond}
-              </span>
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 pt-2 lg:pt-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
               <Button
                 asChild
                 size="lg"
-                className="bg-linear-to-r from-teal-800 to-teal-900 hover:from-teal-900 hover:to-teal-950 text-white h-14 px-8 text-lg rounded-full shadow-xl shadow-teal-900/20 hover:shadow-teal-900/30 transition-all transform hover:scale-105 w-full sm:w-auto"
+                className="bg-teal-900 hover:bg-teal-950 text-white h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-xl shadow-teal-900/20 hover:shadow-teal-900/40 transition-all transform hover:-translate-y-1 w-full sm:w-auto"
               >
-                <Link href="#volunteer" className="flex items-center justify-center">
+                <Link href="/form/volunteer" className="flex items-center justify-center gap-2">
                   {t.buttons.join}
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
 
@@ -71,45 +87,62 @@ export default function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-teal-800/30 text-teal-900 hover:bg-teal-50 hover:border-teal-800/50 hover:text-teal-800 h-14 px-8 text-lg bg-white/50 backdrop-blur-sm rounded-full font-semibold w-full sm:w-auto"
+                className="border-2 border-teal-800/10 text-teal-900 hover:bg-teal-50 hover:border-teal-800/20 h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-white/60 backdrop-blur-sm rounded-full font-bold w-full sm:w-auto transition-all hover:-translate-y-1"
               >
-                <Link href="#manifesto" className="flex items-center justify-center">
+                <Link href="/manifesto" className="flex items-center justify-center">
                   {t.buttons.readManifesto}
                 </Link>
               </Button>
             </div>
           </div>
 
-          {/* Additional content (portrait image) */}
-          <div className="relative order-1 md:order-2 flex justify-center md:justify-end h-[650px] sm:h-[500px] md:h-[700px]">
-            <div className="relative -top-15 w-full max-w-lg h-full select-none">
-              <div className="absolute -top-8 -right-8 w-32 h-32 bg-green-800/10 rounded-full blur-2xl z-0" />
-              <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-red-600/10 rounded-full blur-2xl z-0" />
-                {/* Main hero container (portrait) */}
-                <div className="relative w-full h-full max-w-md mx-auto z-10 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    {/* Main portrait (fills the container) */}
-                    <div className="relative w-5/6 h-[650px] md:h-[700px] lg:h-[800px] rounded-md overflow-hidden">
-                      <Image
-                        src={candidateData.images.hero}
-                        alt={candidateData.firstName}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 500px"
-                        className="object-contain object-center drop-shadow-2xl"
-                        priority
-                      />
+          {/* Animated Center Element (Dhan) - Middle 2 columns */}
+          <div className="lg:col-span-2 relative order-3 lg:order-2 flex justify-center items-center pointer-events-none z-30 py-8 lg:py-0">
+             <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 animate-float-up">
+               <Image
+                 src="/humam/dhan.png"
+                 alt="Sheaf of Paddy"
+                 fill
+                 className="object-contain drop-shadow-2xl opacity-95"
+               />
+             </div>
+          </div>
+
+          {/* Hero Image Section (Right Side - 5 columns) */}
+          <div className="lg:col-span-5 relative order-1 lg:order-3 flex items-center justify-center lg:justify-end">
+            <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[75vh] xl:h-[80vh] max-h-[850px]">
+               {/* Decorative Backdrop Blobs behind image */}
+               <div className="absolute top-[20%] right-0 w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] bg-gradient-to-br from-teal-50 via-green-50 to-transparent rounded-full blur-3xl opacity-50 -z-10" />
+               
+               {/* The Hero Image - Simplified Structure */}
+               <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={candidateData.images.hero}
+                    alt={candidateData.firstName}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-contain object-center drop-shadow-2xl"
+                    style={{
+                      maskImage: "linear-gradient(to bottom, black 85%, transparent 100%)",
+                      WebkitMaskImage: "linear-gradient(to bottom, black 85%, transparent 100%)"
+                    }}
+                    priority
+                    unoptimized
+                  />
+                
+                  {/* Floating "Vote via" Badge */}
+                  <div className="absolute bottom-8 sm:bottom-12 left-2 sm:left-4 lg:-left-4 xl:-left-8 z-20 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-xl shadow-xl border border-teal-100 animate-pulse" style={{ animationDuration: '4s' }}>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                       <div className="bg-gradient-to-br from-red-100 to-red-50 p-2 rounded-full">
+                         <Image src="/humam/dhan.png" alt="Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                       </div>
+                       <div>
+                         <p className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-wide">{t.hero.voteBadge.prefix}</p>
+                         <p className="text-xs sm:text-sm font-bold text-stone-900">{t.hero.voteBadge.symbol}</p>
+                       </div>
                     </div>
                   </div>
-                </div>
-
-              <div className="absolute bottom-2 sm-bottom-20 left-1/2 -translate-x-1/2 z-20 bg-white/95 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-green-200 ">
-                <div className="flex items-center gap-2 ">
-                  <div className="w-2 h-2 rounded-full bg-teal-600 animate-pulse " />
-                  <span className="text-sm font-bold text-teal-900 uppercase tracking-wider ">
-                    {translations[lang].partySlogan}
-                  </span>
-                </div>
-              </div>
+               </div>
             </div>
           </div>
         </div>

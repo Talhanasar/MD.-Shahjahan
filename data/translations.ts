@@ -20,7 +20,16 @@ export const translations = {
       lastName: "Shahjahan",
       lead: "Standing together for democracy, justice, and a prosperous future.",
       bioSecond:
-        "Committed to serving Noakhali-04 with integrity, justice, and progress. Join us in building a better future for our constituency."
+        "Committed to serving Noakhali-04 with integrity, justice, and progress. Join us in building a better future for our constituency.",
+      tags: {
+        democracyFirst: "Democracy First",
+        economicGrowth: "Economic Growth",
+        socialJustice: "Social Justice"
+      },
+      voteBadge: {
+        prefix: "Vote via",
+        symbol: "Sheaf of Paddy"
+      }
     },
     partySlogan: "Bangladesh Zindabad",
     about: {
@@ -804,7 +813,16 @@ export const translations = {
       lastName: "শাহজাহান",
       lead: "গণতন্ত্র, ন্যায় ও সমৃদ্ধ ভবিষ্যতের জন্য একসাথে দাঁড়ানো।",
       bioSecond:
-        "নোয়াখালী-০৪ এর সেবায় তিনি সততা, ন্যায় ও উন্নয়নের জন্য প্রতিশ্রুতিবদ্ধ। আমাদের এলাকার উন্নত ভবিষ্যত গড়তে আপনার সমর্থন প্রয়োজন।"
+        "নোয়াখালী-০৪ এর সেবায় তিনি সততা, ন্যায় ও উন্নয়নের জন্য প্রতিশ্রুতিবদ্ধ। আমাদের এলাকার উন্নত ভবিষ্যত গড়তে আপনার সমর্থন প্রয়োজন।",
+      tags: {
+        democracyFirst: "গণতন্ত্র প্রথম",
+        economicGrowth: "অর্থনৈতিক প্রবৃদ্ধি",
+        socialJustice: "সামাজিক ন্যায়বিচার"
+      },
+      voteBadge: {
+        prefix: "ভোট দিন",
+        symbol: "ধানের শীষ"
+      }
     },
     partySlogan: "বাংলাদেশ জিন্দাবাদ",
     about: {

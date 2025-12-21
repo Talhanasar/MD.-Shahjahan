@@ -28,12 +28,15 @@ export default function Footer() {
   const termsLabel = (t?.footer?.termsLabel as string) ?? "Terms of Service"
 
   return (
-    <section className="py-24 bg-stone-900 text-stone-400 border-t border-stone-800">
-      <div className="container mx-auto px-4">
+    <section className="pt-24 pb-7 bg-linear-to-br from-stone-900 via-stone-900 to-teal-950 text-stone-400 border-t border-stone-800 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/5 rounded-full blur-3xl" />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-4 gap-12">
           <div className="space-y-6 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 overflow-hidden rounded-full ring-2 ring-green-700/30 group-hover:ring-green-700/50 transition-all shadow-sm">
+              <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 overflow-hidden rounded-full ring-2 ring-teal-700/40 group-hover:ring-teal-600/60 group-hover:scale-110 transition-all shadow-lg shadow-teal-900/20">
                 <Image
                   src={candidateData.images.logo}
                   alt={candidateData.firstName}
@@ -60,7 +63,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href={url}
-                  className="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:bg-green-800 hover:text-white transition-colors"
+                  className="w-10 h-10 rounded-full bg-linear-to-br from-stone-800 to-stone-900 flex items-center justify-center text-stone-400 hover:from-teal-600 hover:to-green-600 hover:text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-teal-500/30"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
@@ -72,7 +75,7 @@ export default function Footer() {
             <h4 className="text-white font-bold tracking-wider uppercase text-sm">{contactTitle}</h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-green-700 shrink-0" />
+                <MapPin className="w-5 h-5 text-teal-500 shrink-0" />
                 <span>
                   {candidateData.contact.address.line1},
                   <br />
@@ -80,11 +83,11 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-green-700 shrink-0" />
+                <Phone className="w-5 h-5 text-teal-500 shrink-0" />
                 <span>{candidateData.contact.phone}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-green-700 shrink-0" />
+                <Mail className="w-5 h-5 text-teal-500 shrink-0" />
                 <span>{candidateData.contact.email}</span>
               </li>
             </ul>
@@ -94,22 +97,22 @@ export default function Footer() {
             <h4 className="text-white font-bold tracking-wider uppercase text-sm">{quickLinksTitle}</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#about" className="hover:text-white transition-colors">
+                <Link href="#about" className="hover:text-teal-400 transition-colors">
                   {aboutLabel}
                 </Link>
               </li>
               <li>
-                <Link href="/manifesto" className="hover:text-white transition-colors">
+                <Link href="/manifesto" className="hover:text-teal-400 transition-colors">
                   {manifestoLabel}
                 </Link>
               </li>
               <li>
-                <Link href="form/volunteer" className="hover:text-white transition-colors">
+                <Link href="form/volunteer" className="hover:text-teal-400 transition-colors">
                   {volunteerLabel}
                 </Link>
               </li>
               <li>
-                <Link href="#donate" className="hover:text-white transition-colors">
+                <Link href="#donate" className="hover:text-teal-400 transition-colors">
                   {donateLabel}
                 </Link>
               </li>
@@ -120,10 +123,10 @@ export default function Footer() {
         <div className="border-t border-stone-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>{candidateData.footer.copyright}</p>
           <div className="flex gap-8">
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="#" className="hover:text-teal-400 transition-colors">
               {privacyLabel}
             </Link>
-            <Link href="#" className="hover:text-white transition-colors">
+            <Link href="#" className="hover:text-teal-400 transition-colors">
               {termsLabel}
             </Link>
           </div>

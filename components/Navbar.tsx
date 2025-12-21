@@ -55,7 +55,7 @@ export default function Navbar() {
   }, [pathname])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-stone-200/50 bg-white/95 backdrop-blur-md shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-stone-200/50 bg-white/80 backdrop-blur-xl shadow-sm transition-all duration-300">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 overflow-hidden rounded-full ring-2 ring-teal-800/20 group-hover:ring-teal-800/40 transition-all group-hover:scale-105 shadow-sm">
