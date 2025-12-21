@@ -839,8 +839,8 @@ export const translations = {
     },
     
     gallery: {
-      title: "ক্যাম্পেইন গ্যালারি",
-      heroTitle: "আমাদের ক্যাম্পেইন যাত্রা",
+      title: "ফটো গ্যালারি",
+      heroTitle: "ফটো গ্যালারি",
       description: "ক্যাম্পেইনের মুহূর্তগুলো — স্মৃতি, কর্মকাণ্ড এবং অগ্রগতি",
       photos: "{count}টি ছবি",
       // translated category labels (order should match candidateData.gallery.categories)
