@@ -25,7 +25,7 @@ export default function AboutSection() {
   const skillsRight: string[] = (t?.about?.skills?.right as string[]) ?? candidateData.skills.right
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-teal-50 via-green-50/30 to-stone-50 relative overflow-hidden">
+    <section id="about" className="py-20 bg-linear-to-br from-teal-50 via-green-50/30 to-stone-50 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/5 rounded-full blur-3xl" />
@@ -42,18 +42,11 @@ export default function AboutSection() {
                 className="object-cover object-center w-full h-auto sm:h-64 md:h-72 lg:h-full" // Adjust the height on mobile and tablet
               />
             </div>
-
-
-            
-           {/* <div className="absolute -bottom-6 -left-6 w-40 h-40 sm:w-48 md:w-40 bg-teal-800 rounded-3xl p-4 sm:p-6 flex flex-col justify-center items-start text-white shadow-xl transform hover:scale-105 transition-all duration-300">
-              <span className="text-4xl sm:text-5xl md:text-6xl font-extrabold">{experienceYears}</span>
-              <span className="text-xs sm:text-sm font-medium opacity-90 mt-1">{experienceLabel}</span>
-            </div>*/}
           </div>
 
           <div className="lg:col-span-7 space-y-8 order-1 lg:order-2">
             {/* Title with responsive font size */}
-            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold bg-gradient-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-serif font-extrabold bg-linear-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent leading-tight">
               {aboutTitle.split(', ').map((part, i) => (
                 <span key={i}>
                   {part}
@@ -74,7 +67,7 @@ export default function AboutSection() {
               <ul className="space-y-3">
                 {skillsLeft.map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-stone-700">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-teal-500 to-green-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-teal-500/30">
+                    <div className="w-6 h-6 rounded-full bg-linear-to-br from-teal-500 to-green-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-teal-500/30">
                       <Check className="w-3 h-3" />
                     </div>
                     <span className="font-medium">{item}</span>
@@ -84,7 +77,7 @@ export default function AboutSection() {
               <ul className="space-y-3">
                 {skillsRight.map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-stone-700">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-teal-500 to-green-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-teal-500/30">
+                    <div className="w-6 h-6 rounded-full bg-linear-to-br from-teal-500 to-green-500 flex items-center justify-center text-white shrink-0 shadow-lg shadow-teal-500/30">
                       <Check className="w-3 h-3" />
                     </div>
                     <span className="font-medium">{item}</span>

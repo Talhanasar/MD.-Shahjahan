@@ -58,15 +58,15 @@ export default function HeroSection() {
 
             <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-teal-800 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-red-500 flex-shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-red-500 shrink-0" />
                 <span>{t.hero.tags.democracyFirst}</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
                 <span>{t.hero.tags.economicGrowth}</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-teal-600 flex-shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-teal-600 shrink-0" />
                 <span>{t.hero.tags.socialJustice}</span>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function HeroSection() {
           <div className="lg:col-span-5 relative order-1 lg:order-3 flex items-center justify-center lg:justify-end">
             <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[75vh] xl:h-[80vh] max-h-[850px]">
                {/* Decorative Backdrop Blobs behind image */}
-               <div className="absolute top-[20%] right-0 w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] bg-gradient-to-br from-teal-50 via-green-50 to-transparent rounded-full blur-3xl opacity-50 -z-10" />
+               <div className="absolute top-[20%] right-0 w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] bg-linear-to-br from-teal-50 via-green-50 to-transparent rounded-full blur-3xl opacity-50 -z-10" />
                
                {/* The Hero Image - Simplified Structure */}
                <div className="relative w-full h-full flex items-center justify-center">
@@ -133,7 +133,7 @@ export default function HeroSection() {
                   {/* Floating "Vote via" Badge */}
                   <div className="absolute bottom-8 sm:bottom-12 left-2 sm:left-4 lg:-left-4 xl:-left-8 z-20 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-xl shadow-xl border border-teal-100 animate-pulse" style={{ animationDuration: '4s' }}>
                     <div className="flex items-center gap-2 sm:gap-3">
-                       <div className="bg-gradient-to-br from-red-100 to-red-50 p-2 rounded-full">
+                       <div className="bg-linear-to-br from-red-100 to-red-50 p-2 rounded-full">
                          <Image src="/humam/dhan.png" alt="Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                        </div>
                        <div>
