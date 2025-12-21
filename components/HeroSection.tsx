@@ -13,7 +13,7 @@ export default function HeroSection() {
   const t = translations[lang]
 
   return (
-    <section className="relative min-h-[100vh] flex items-center bg-stone-50 overflow-hidden pt-8 lg:pt-0 pb-12 lg:pb-16">
+    <section className="relative min-h-[95vh] lg:min-h-[100vh] flex items-center bg-stone-50 overflow-hidden pt-2 lg:pt-0 pb-12 lg:pb-16">
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[-10%] right-[0%] w-[50%] h-[50%] bg-teal-500/10 rounded-full blur-[100px] animate-pulse duration-[5000ms]" />
@@ -28,9 +28,9 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center relative min-h-[85vh] lg:min-h-0">
           
           {/* Text Content (Left Side - 5 columns) */}
-          <div className="lg:col-span-5 space-y-6 lg:space-y-8 order-2 lg:order-1 relative z-20">
+          <div className="lg:col-span-5 space-y-4 lg:space-y-8 order-2 lg:order-1 relative z-20">
             {/* Party Logo */}
-            <div className="w-full max-w-[280px] sm:max-w-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <div className="w-full max-w-[200px] sm:max-w-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
                <Image
                  src={candidateData.images.bnpPoster}
                  alt="BNP Logo"
@@ -41,11 +41,11 @@ export default function HeroSection() {
             </div>
 
             <div className="space-y-4 lg:space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl font-serif font-black leading-[1.1] tracking-tight text-stone-900 drop-shadow-sm animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-6xl font-serif font-black leading-[1.1] tracking-tight text-stone-900 drop-shadow-sm animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
                 <span className="text-teal-900">{t.hero.firstName}</span>
                 <span className="relative inline-block">
                   {t.hero.lastName}
-                  <span className="text-red-600 text-4xl sm:text-5xl md:text-6xl">.</span>
+                  <span className="text-red-600 text-3xl sm:text-5xl md:text-6xl">.</span>
                 </span>
               </h1>
               
@@ -71,15 +71,15 @@ export default function HeroSection() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-4 pt-2 lg:pt-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
+            <div className="flex flex-wrap gap-3 sm:gap-4 pt-2 lg:pt-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
               <Button
                 asChild
                 size="lg"
-                className="bg-teal-900 hover:bg-teal-950 text-white h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg rounded-full shadow-xl shadow-teal-900/20 hover:shadow-teal-900/40 transition-all transform hover:-translate-y-1 w-full sm:w-auto"
+                className="bg-teal-900 hover:bg-teal-950 text-white h-11 sm:h-14 px-6 sm:px-8 text-sm sm:text-lg rounded-full shadow-xl shadow-teal-900/20 hover:shadow-teal-900/40 transition-all transform hover:-translate-y-1 w-full sm:w-auto"
               >
                 <Link href="/form/volunteer" className="flex items-center justify-center gap-2">
                   {t.buttons.join}
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </Link>
               </Button>
 
@@ -87,7 +87,7 @@ export default function HeroSection() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-2 border-teal-800/10 text-teal-900 hover:bg-teal-50 hover:border-teal-800/20 h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg bg-white/60 backdrop-blur-sm rounded-full font-bold w-full sm:w-auto transition-all hover:-translate-y-1"
+                className="border-2 border-teal-800/10 text-teal-900 hover:bg-teal-50 hover:border-teal-800/20 h-11 sm:h-14 px-6 sm:px-8 text-sm sm:text-lg bg-white/60 backdrop-blur-sm rounded-full font-bold w-full sm:w-auto transition-all hover:-translate-y-1"
               >
                 <Link href="/manifesto" className="flex items-center justify-center">
                   {t.buttons.readManifesto}
@@ -97,8 +97,8 @@ export default function HeroSection() {
           </div>
 
           {/* Animated Center Element (Dhan) - Middle 2 columns */}
-          <div className="lg:col-span-2 relative order-3 lg:order-2 flex justify-center items-center pointer-events-none z-30 py-8 lg:py-0">
-             <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 animate-float-up">
+          <div className="lg:col-span-2 absolute top-6 right-6 lg:relative lg:top-auto lg:right-auto lg:order-2 flex justify-center items-center pointer-events-none z-30 lg:py-0">
+             <div className="relative w-16 h-16 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 animate-float-up">
                <Image
                  src="/shahjahan/dhan.png"
                  alt="Sheaf of Paddy"
@@ -110,9 +110,9 @@ export default function HeroSection() {
 
           {/* Hero Image Section (Right Side - 5 columns) */}
           <div className="lg:col-span-5 relative order-1 lg:order-3 flex items-center justify-center lg:justify-end">
-            <div className="relative w-full h-[500px] sm:h-[600px] md:h-[700px] lg:h-[75vh] xl:h-[80vh] max-h-[850px]">
+            <div className="relative w-full h-[380px] sm:h-[600px] md:h-[700px] lg:h-[75vh] xl:h-[80vh] max-h-[850px]">
                {/* Decorative Backdrop Blobs behind image */}
-               <div className="absolute top-[20%] right-0 w-[350px] h-[350px] lg:w-[450px] lg:h-[450px] bg-linear-to-br from-teal-50 via-green-50 to-transparent rounded-full blur-3xl opacity-50 -z-10" />
+               <div className="absolute top-[20%] right-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[450px] lg:h-[450px] bg-linear-to-br from-teal-50 via-green-50 to-transparent rounded-full blur-3xl opacity-50 -z-10" />
                
                {/* The Hero Image - Simplified Structure */}
                <div className="relative w-full h-full flex items-center justify-center">
@@ -131,10 +131,10 @@ export default function HeroSection() {
                   />
                 
                   {/* Floating "Vote via" Badge */}
-                  <div className="absolute bottom-8 sm:bottom-12 left-2 sm:left-4 lg:-left-4 xl:-left-8 z-20 bg-white/95 backdrop-blur-md p-3 sm:p-4 rounded-xl shadow-xl border border-teal-100 animate-pulse" style={{ animationDuration: '4s' }}>
+                  <div className="absolute bottom-6 sm:bottom-12 left-0 sm:left-4 lg:-left-4 xl:-left-8 z-20 bg-white/95 backdrop-blur-md p-2 sm:p-4 rounded-xl shadow-xl border border-teal-100 animate-pulse" style={{ animationDuration: '4s' }}>
                     <div className="flex items-center gap-2 sm:gap-3">
                        <div className="bg-linear-to-br from-red-100 to-red-50 p-2 rounded-full">
-                         <Image src="/shahjahan/dhan.png" alt="Icon" width={20} height={20} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
+                         <Image src="/shahjahan/dhan.png" alt="Icon" width={16} height={16} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" />
                        </div>
                        <div>
                          <p className="text-[10px] sm:text-xs text-stone-500 font-bold uppercase tracking-wide">{t.hero.voteBadge.prefix}</p>
