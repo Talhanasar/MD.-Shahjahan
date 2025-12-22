@@ -5,8 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { newsData, NewsItem } from "@/data/news"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 import { Button } from "@/components/ui/button"
 
 /**
@@ -17,8 +16,7 @@ import { Button } from "@/components/ui/button"
 export default function NewsDetail() {
   const searchParams = useSearchParams()
   const router = useRouter()
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
   const translatedNews = (t as any).news as any[] | undefined
 
   const id = searchParams.get("id") || ""
@@ -61,7 +59,7 @@ export default function NewsDetail() {
 
   return (
     <article className="py-16 relative">
-      <div className="container mx-auto px-4 max-w-3xl">
+      <div className="mx-auto w-full px-4 sm:px-6 lg:px-8 max-w-3xl">
         {/* Back button: icon-only on small screens, icon + text from `sm` and up */}
         <div className="mb-6">
           <Button asChild variant="ghost" className="text-stone-700 hover:bg-stone-100 px-0 hover:text-teal-900">

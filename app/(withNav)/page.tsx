@@ -1,23 +1,23 @@
-import HeroSection from "@/components/HeroSection"
-import VideoSection from "@/components/VideoSection"
-import CalendarSection from "@/components/CalendarSection"
-import GalleryCalendarSection from "@/components/GalleryCalendarSection"
-import ManifestoSection from "@/components/ManifestoSection"
-import AboutSection from "@/components/AboutSection"
-import BannerSection from "@/components/BannerSection"
-import GetInvolvedSection from "@/components/GetInvolvedSection"
-import PollSection from "@/components/PollSection"
-import LatestNews from "@/components/LatestNews"
+import HeroSection from "@/components/home/HeroSection"
+import VideoSection from "@/components/home/VideoSection"
+import GalleryCalendarSection from "@/components/home/GalleryCalendarSection"
+import ManifestoSection from "@/components/home/ManifestoSection"
+import AboutSection from "@/components/home/AboutSection"
+import BannerSection from "@/components/home/BannerSection"
+import GetInvolvedSection from "@/components/home/GetInvolvedSection"
+import PollSection from "@/components/home/PollSection"
+import LatestNews from "@/components/home/LatestNews"
 export default function CandidatePage() {
   return (
     <>
       <HeroSection />
+      <AboutSection />
+      <ManifestoSection />
       <VideoSection />
       <GalleryCalendarSection/>
-      <ManifestoSection />
-      <AboutSection />
       <GetInvolvedSection />
       <PollSection />
+      <BannerSection />
       <LatestNews count={4} />
     </>
   )

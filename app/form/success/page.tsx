@@ -16,10 +16,9 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { candidateData } from "@/data/candidateData"
+
 import { useEffect, useState, Suspense } from "react"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 type FormType = "contact" | "volunteer"
 
@@ -27,8 +26,7 @@ function SuccessContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [mounted, setMounted] = useState(false)
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
   // Cast to any to avoid TypeScript complaining about optional/extra keys in translations
   const T = t as any
 
@@ -57,7 +55,7 @@ function SuccessContent() {
     : T.success?.volunteerTitle ?? "Application Submitted!"
 
   const subtitle = isContact
-    ? T.success?.contactSubtitle ?? `Thank you for reaching out to ${candidateData.firstName} ${candidateData.lastName}`
+    ? T.success?.contactSubtitle ?? `Thank you for reaching out to ${data.firstName} ${data.lastName}`
     : T.success?.volunteerSubtitle ?? "Thank you for your interest in volunteering"
 
   const badgeText = isContact
@@ -117,7 +115,7 @@ function SuccessContent() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-teal-50/30 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto">
           {/* Success Card */}
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-teal-900">
@@ -265,15 +263,15 @@ function SuccessContent() {
               {isContact ? (
                 <>
                   {needImmediatePrefix}{" "}
-                  <a href={`tel:${candidateData.contact.phone}`} className="text-teal-900 hover:underline font-semibold">
-                    {callUsText} {candidateData.contact.phone}
+                  <a href={`tel:${data.contact.phone}`} className="text-teal-900 hover:underline font-semibold">
+                    {callUsText} {data.contact.phone}
                   </a>
                 </>
               ) : (
                 <>
                   {questionsPrefix}{" "}
-                  <a href={`mailto:${candidateData.contact.email}`} className="text-teal-800 hover:underline font-semibold">
-                    {contactUsText} {candidateData.contact.email}
+                  <a href={`mailto:${data.contact.email}`} className="text-teal-800 hover:underline font-semibold">
+                    {contactUsText} {data.contact.email}
                   </a>
                 </>
               )}

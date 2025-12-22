@@ -2,10 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Users, CheckCircle2 } from "lucide-react"
-import { candidateData } from "@/data/candidateData"
 import Link from "next/link"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 const iconMap = {
   Users,
@@ -13,13 +11,12 @@ const iconMap = {
 }
 
 export default function ManifestoSection() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? {}
+  const { language: lang, t, data } = useLanguageAndData()
 
-  const title = t?.manifesto?.title ?? candidateData.manifesto.title
-  const description = t?.manifesto?.description ?? candidateData.manifesto.description
-  // manifesto items might be candidate-specific; we fall back to candidateData.manifesto.items
-  const items = t?.manifesto?.items ?? candidateData.manifesto.items
+  const title = t?.manifesto?.title ?? data.manifesto.title
+  const description = t?.manifesto?.description ?? data.manifesto.description
+  // manifesto items might be candidate-specific; we fall back to data.manifesto.items
+  const items = t?.manifesto?.items ?? data.manifesto.items
 
   return (
     <section id="manifesto" className="py-24 bg-gradient-to-br from-teal-800 via-teal-900 to-green-900 text-white relative overflow-hidden">
@@ -29,7 +26,7 @@ export default function ManifestoSection() {
         style={{ backgroundImage: "radial-gradient(#ffffff 1.5px, transparent 1.5px)", backgroundSize: "24px 24px" }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Title and Description Section */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-2xl">

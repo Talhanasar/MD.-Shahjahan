@@ -4,23 +4,20 @@ import React, { useEffect } from "react"
 import Link from "next/link"
 import { ArrowRight, Images } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 /**
  * Gallery + Calendar section
  * - Uses candidateData.gallery.images (if present) as the source for thumbnails.
  * - Renders plain <img> tags so public/ paths (e.g. /humam/gallery/...) work without next.config changes.
  * - Ensures both cards are same height and titles use the same sizing.
- * - Removes calendar badge and Request Visit button (per request).
+ * - Gallery and Calendar each take 50% width on medium screens and above.
  */
 
 export default function GalleryCalendarSection() {
-  const { lang } = useLanguage()
-  const t = translations[lang]
+  const { language: lang, t, data } = useLanguageAndData()
 
-  const cd: any = candidateData
+  const cd: any = data
 
   // prefer an explicit preview field, otherwise use gallery.images if available
   const rawPreviews: any =
@@ -60,10 +57,10 @@ export default function GalleryCalendarSection() {
 
   return (
     <section id="media" className="py-24 bg-stone-50">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-10 gap-8 items-stretch">
-          {/* LEFT: gallery (phone: full width, tablet: 4/10, laptop: 4/10) */}
-          <div className="md:col-span-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          {/* LEFT: gallery (phone: full width, tablet: 50%, laptop: 50%) */}
+          <div>
             <div className="w-full bg-white rounded-2xl shadow-lg border border-stone-200 p-6 flex flex-col h-full">
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-teal-800 text-white shadow-sm shrink-0">
@@ -121,8 +118,8 @@ export default function GalleryCalendarSection() {
             </div>
           </div>
 
-          {/* RIGHT: calendar (phone: full width, tablet: 6/10, laptop: 6/10) */}
-          <div className="md:col-span-6">
+          {/* RIGHT: calendar (phone: full width, tablet: 50%, laptop: 50%) */}
+          <div>
             <div className="bg-white rounded-2xl shadow-lg border border-stone-200 overflow-hidden h-full flex flex-col">
               <div className="p-8 flex-1 flex flex-col">
                 <div className="mb-6">

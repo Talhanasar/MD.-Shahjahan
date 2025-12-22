@@ -3,12 +3,10 @@
 import { useState } from "react"
 import { BarChart3, CheckCircle2 } from "lucide-react"
 import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function PollSection() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? {}
+  const { language: lang, t, data } = useLanguageAndData()
 
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
   const [hasVoted, setHasVoted] = useState(false)
@@ -36,15 +34,15 @@ export default function PollSection() {
 
   const publicOpinionLabel = t?.poll?.publicOpinion ?? "Public Opinion"
   const heading = t?.poll?.heading ?? "What's Your Opinion?"
-  const subtext = t?.poll?.subtext ?? `Share your thoughts about ${candidateData.party.name} and help us understand the public sentiment.`
-  const question = t?.poll?.question ?? `Do you support ${candidateData.party.abbreviation}'s vision for Bangladesh?`
+  const subtext = t?.poll?.subtext ?? `Share your thoughts about ${data.party.name} and help us understand the public sentiment.`
+  const question = t?.poll?.question ?? `Do you support ${data.party.abbreviation}'s vision for Bangladesh?`
   const participatedText = t?.poll?.participatedText ?? `${totalVotes.toLocaleString()} people have participated in this poll`
   const selectOptionText = t?.poll?.selectOptionText ?? "Select an option above to cast your vote"
   const thankYouText = t?.poll?.thankYouText ?? "✓ Thank you for participating! Your vote has been recorded."
 
   return (
     <section id="poll" className="py-5 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 text-teal-900 text-sm font-semibold mb-4">

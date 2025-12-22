@@ -1,10 +1,12 @@
 import { Calendar } from "lucide-react"
-import { candidateData } from "@/data/candidateData"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function CalendarSection() {
+  const { data } = useLanguageAndData()
+  
   return (
     <section id="calendar" className="py-24 bg-stone-50">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-900 text-sm font-semibold mb-4">
@@ -24,7 +26,7 @@ export default function CalendarSection() {
             <div className="p-6">
               <div className="relative w-full" style={{ paddingBottom: "75%" }}>
                 <iframe
-                  src={candidateData.calendar?.embedUrl || "https://calendar.google.com/calendar/embed?src=1fafa8ab28415db6a09b018be97495592b38dba0cf79e60af85612ddcfc83e27%40group.calendar.google.com&ctz=Asia%2FDhaka"}
+                  src={data.calendar?.embedUrl || "https://calendar.google.com/calendar/embed?src=1fafa8ab28415db6a09b018be97495592b38dba0cf79e60af85612ddcfc83e27%40group.calendar.google.com&ctz=Asia%2FDhaka"}
                   style={{
                     position: "absolute",
                     top: 0,

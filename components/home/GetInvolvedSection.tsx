@@ -3,13 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { Users, MessageSquare } from "lucide-react"
 import Link from "next/link"
-import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function GetInvolvedSection() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? {}
+  const { language: lang, t, data } = useLanguageAndData()
 
   const title = t?.getInvolved?.title ?? "Get Involved"
   const description = t?.getInvolved?.description ?? "There are many ways to support the movement. Choose the one that suits you best."
@@ -18,13 +15,13 @@ export default function GetInvolvedSection() {
   const volunteerText = t?.getInvolved?.volunteerText ?? "Join our dedicated team on the ground. Help organize events, spread the message, and drive change in your local area."
   const volunteerButton = t?.buttons?.volunteer ?? "Join the Team"
 
-  const contactTitle = t?.getInvolved?.contactTitle ?? `Contact ${candidateData.firstName}`
-  const contactText = t?.getInvolved?.contactText ?? `Have a question, concern, or suggestion? Reach out directly to ${candidateData.firstName}'s office. We want to hear from you.`
+  const contactTitle = t?.getInvolved?.contactTitle ?? `Contact ${data.firstName}`
+  const contactText = t?.getInvolved?.contactText ?? `Have a question, concern, or suggestion? Reach out directly to ${data.firstName}'s office. We want to hear from you.`
   const contactButton = t?.getInvolved?.contactButton ?? "Send a Message"
 
   return (
     <section id="volunteer" className="py-24 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-4xl font-serif font-bold bg-gradient-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent">{title}</h2>
           <p className="text-stone-600 text-lg">

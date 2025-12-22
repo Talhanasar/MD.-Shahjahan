@@ -3,16 +3,13 @@
 import { useEffect, useRef, useState } from "react"
 import { Images, X, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
-import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
-
-const galleryImages = candidateData.gallery.images
-const categoryKeys = candidateData.gallery.categories
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function GalleryPage() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
+  
+  const galleryImages = data.gallery.images
+  const categoryKeys = data.gallery.categories
 
   // translated labels for categories (if provided in translations.gallery.categories as an array that matches candidateData order)
   const translatedCategories: string[] = (t.gallery && Array.isArray((t.gallery as any).categories))
@@ -152,7 +149,7 @@ export default function GalleryPage() {
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
         </div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm mb-6 border border-white/20">
               <Images className="w-6 h-6" />
@@ -170,7 +167,7 @@ export default function GalleryPage() {
 
       {/* Category Filter */}
       <section className="py-8 bg-white border-b border-stone-200 sticky top-20 z-40 shadow-sm">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-3">
             {categoryKeys.map((key, idx) => {
               const isActive = selectedCategoryKey === key
@@ -200,7 +197,7 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <section className="py-16 bg-stone-50 min-h-screen">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
           {isLoading ? (
             <div className="flex items-center justify-center py-20">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-800"></div>

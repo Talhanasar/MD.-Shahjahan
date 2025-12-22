@@ -3,24 +3,21 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from "lucide-react"
-import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function Footer() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? {}
+  const { language: lang, t, data } = useLanguageAndData()
 
   const socialIcons = [
-    { Icon: Facebook, url: candidateData.socialMedia.facebook },
-    { Icon: Twitter, url: candidateData.socialMedia.twitter },
-    { Icon: Instagram, url: candidateData.socialMedia.instagram },
-    { Icon: Youtube, url: candidateData.socialMedia.youtube }
+    { Icon: Facebook, url: data.socialMedia.facebook },
+    { Icon: Twitter, url: data.socialMedia.twitter },
+    { Icon: Instagram, url: data.socialMedia.instagram },
+    { Icon: Youtube, url: data.socialMedia.youtube }
   ]
 
   const contactTitle = (t?.footer?.contactTitle as string) ?? "Contact"
   const quickLinksTitle = (t?.footer?.quickLinksTitle as string) ?? "Quick Links"
-  const aboutLabel = (t?.footer?.aboutLabel as string) ?? `About ${candidateData.firstName}`
+  const aboutLabel = (t?.footer?.aboutLabel as string) ?? `About ${data.firstName}`
   const manifestoLabel = (t?.footer?.manifestoLabel as string) ?? "Manifesto"
   const volunteerLabel = (t?.footer?.volunteerLabel as string) ?? "Volunteer"
   const donateLabel = (t?.footer?.donateLabel as string) ?? "Donate"
@@ -28,18 +25,15 @@ export default function Footer() {
   const termsLabel = (t?.footer?.termsLabel as string) ?? "Terms of Service"
 
   return (
-    <section className="pt-24 pb-7 bg-linear-to-br from-stone-900 via-stone-900 to-teal-950 text-stone-400 border-t border-stone-800 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/5 rounded-full blur-3xl" />
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="pt-24 pb-7 bg-linear-to-br from-stone-900 via-stone-900 to-teal-950 text-stone-400 border-t border-stone-800">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-4 gap-12">
           <div className="space-y-6 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 overflow-hidden rounded-full ring-2 ring-teal-700/40 group-hover:ring-teal-600/60 group-hover:scale-110 transition-all shadow-lg shadow-teal-900/20">
                 <Image
-                  src={candidateData.images.logo}
-                  alt={candidateData.firstName}
+                  src={data.images.logo}
+                  alt={data.firstName}
                   fill
                   sizes="(max-width: 640px) 56px, 64px"
                   className="object-cover object-center"
@@ -47,16 +41,16 @@ export default function Footer() {
               </div>
               <div className="flex flex-col min-w-0">
                 <span className="text-2xl font-serif font-bold text-white leading-tight truncate">
-                  {candidateData.firstName.toUpperCase()} {candidateData.lastName.toUpperCase()}
+                  {data.firstName.toUpperCase()} {data.lastName.toUpperCase()}
                   <span className="text-red-600">.</span>
                 </span>
                 <span className="text-xs text-stone-400 font-medium uppercase tracking-wider">
-                  {candidateData.footer.officeLabel}
+                  {data.footer.officeLabel}
                 </span>
               </div>
             </Link>
             <p className="max-w-md text-stone-400 leading-relaxed">
-              {t?.footer?.partyDescription ?? candidateData.party.description}
+              {t?.footer?.partyDescription ?? data.party.description}
             </p>
             <div className="flex gap-4">
               {socialIcons.map(({ Icon, url }, i) => (
@@ -77,18 +71,18 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-teal-500 shrink-0" />
                 <span>
-                  {candidateData.contact.address.line1},
+                  {data.contact.address.line1},
                   <br />
-                  {candidateData.contact.address.line2}
+                  {data.contact.address.line2}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-teal-500 shrink-0" />
-                <span>{candidateData.contact.phone}</span>
+                <span>{data.contact.phone}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-teal-500 shrink-0" />
-                <span>{candidateData.contact.email}</span>
+                <span>{data.contact.email}</span>
               </li>
             </ul>
           </div>
@@ -121,7 +115,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-stone-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>{candidateData.footer.copyright}</p>
+          <p>{data.footer.copyright}</p>
           <div className="flex gap-8">
             <Link href="#" className="hover:text-teal-400 transition-colors">
               {privacyLabel}

@@ -3,19 +3,24 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { candidateData } from "@/data/candidateData"
 import { Menu, X } from "lucide-react"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
+import LanguageContext from "@/store/LanguageContext"
 
 export default function Navbar() {
   const pathname = usePathname()
   const [activeHash, setActiveHash] = useState("")
   const [mobileOpen, setMobileOpen] = useState(false)
-  const { lang, toggle } = useLanguage()
-  const t = translations[lang]
+  const { language: lang, t, data } = useLanguageAndData()
+  // Import the context to get the setLanguage function
+  const languageContext = useContext(LanguageContext)
+  const toggle = () => {
+    if (languageContext && languageContext.setLanguage) {
+      languageContext.setLanguage(lang === "en" ? "bn" : "en")
+    }
+  }
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -44,6 +49,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: t.nav.home },
+    { href: "/about", label: t.nav.about },
     { href: "/manifesto", label: t.nav.manifesto },
     { href: "/gallery", label: t.nav.gallery },
     { href: "/form/contact", label: t.nav.contact }
@@ -56,12 +62,12 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-stone-200/50 bg-white/80 backdrop-blur-xl shadow-sm transition-all duration-300">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 overflow-hidden rounded-full ring-2 ring-teal-800/20 group-hover:ring-teal-800/40 transition-all group-hover:scale-105 shadow-sm">
             <Image
-              src={candidateData.images.logo}
-              alt={candidateData.firstName}
+              src={data.images.logo}
+              alt={data.firstName}
               fill
               sizes="(max-width: 640px) 44px, 56px"
               className="object-cover object-center"
@@ -104,7 +110,7 @@ export default function Navbar() {
           <button
             aria-label="Toggle language"
             onClick={toggle}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-stone-200 test-stone-400 hover:bg-stone-10 hover:border-teal-800 hover:text-teal-800 text-sm"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-stone-200 text-stone-400 hover:bg-stone-10 hover:border-teal-800 hover:text-teal-800 text-sm"
             title={lang === "en" ? "Switch to Bangla" : "Switch to English"}
           >
             {lang === "en" ? "EN" : "বাংলা"}
@@ -126,16 +132,6 @@ export default function Navbar() {
             >
               <Link href="#donate">{t.buttons.donate}</Link>
             </Button>
-
-            <Link
-              href={candidateData.socialMedia?.facebook ?? "/"}
-              className="hidden lg:inline-flex block rounded-full overflow-hidden w-10 h-10 ring-1 ring-teal-100 hover:scale-105 transition-transform"
-              aria-label="Party logo"
-            >
-              <div className="relative w-full h-full">
-                <Image src={candidateData.images.sideImage ?? "/humam/bnplogo.png"} alt="party" fill className="object-cover" />
-              </div>
-            </Link>
           </div>
 
           {/* Mobile / Tablet menu button — visible below lg (i.e., on md and smaller) */}
@@ -155,7 +151,7 @@ export default function Navbar() {
           mobileOpen ? "max-h-[600px] opacity-100 visible" : "max-h-0 opacity-0 invisible"
         }`}
       >
-        <div className="container mx-auto px-4 py-6 space-y-6">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 py-6 space-y-6">
           <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => {
               const active = isActive(link.href)
@@ -190,9 +186,9 @@ export default function Navbar() {
           
           <div className="flex items-center justify-center gap-2 pt-2 pb-2">
              <span className="text-xs text-stone-400 font-medium uppercase tracking-widest">Follow us</span>
-             <Link href={candidateData.socialMedia?.facebook ?? "/"} className="w-8 h-8 flex items-center justify-center rounded-full bg-stone-50 text-teal-700 hover:bg-teal-100 transition-colors">
+             <Link href={data.socialMedia?.facebook ?? "/"} className="w-8 h-8 flex items-center justify-center rounded-full bg-stone-50 text-teal-700 hover:bg-teal-100 transition-colors">
                <div className="relative w-5 h-5">
-                 <Image src={candidateData.images.sideImage ?? "/humam/bnplogo.png"} alt="party" fill className="object-cover" />
+                 <Image src={data.images.sideImage ?? "/humam/bnplogo.png"} alt="party" fill className="object-cover" />
                </div>
              </Link>
           </div>

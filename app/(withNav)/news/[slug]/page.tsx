@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import NewsDetailClient from "@/components/NewsDetail"
+import NewsDetailClient from "@/components/news/NewsDetail"
 
 // This is a static route (no dynamic [slug] folder). The detail component reads the `id` query param.
 export default function Page() {

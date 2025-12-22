@@ -3,8 +3,7 @@
 import React, { useMemo, useState } from "react"
 import Link from "next/link"
 import { MapPin, BookOpen, Phone, Heart, ShieldCheck, Leaf, Globe } from "lucide-react"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 type Section = {
   title?: string
@@ -47,8 +46,7 @@ const ICON_MAP: Record<string, React.FC<any>> = {
  * and merge translated fields onto the source topics.
  */
 export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
 
   // Build translated topics map (by slug) if available
   const translatedTopicsBySlug = useMemo(() => {
@@ -83,7 +81,7 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
   if (!mergedTopics || mergedTopics.length === 0) {
     return (
       <section className="py-12">
-        <div className="container mx-auto px-4">
+        <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
           <div className="text-center text-stone-600">No manifesto topics available.</div>
         </div>
       </section>
@@ -92,7 +90,7 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
 
   return (
     <section className="py-8">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         {/* Top pill navigation (scrollable on mobile, centered on large screens) */}
         <div className="flex justify-center mb-6 sm:mb-10">
           <div className="flex flex-nowrap sm:flex-wrap gap-3 sm:gap-4 w-full sm:w-auto overflow-x-auto pb-4 sm:pb-0 px-1 scrollbar-hide sm:justify-center">
@@ -103,15 +101,15 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
                 <button
                   key={topic.slug}
                   onClick={() => setActiveSlug(topic.slug)}
-                  className={`flex-shrink-0 inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all text-sm font-semibold shadow-sm ${
+                  className={`shrink-0 inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full border transition-all text-sm font-semibold shadow-sm ${
                     active
-                      ? "bg-gradient-to-r from-teal-800 to-teal-900 text-white shadow-lg shadow-teal-900/30 border-teal-700"
-                      : "bg-white text-teal-800 border-teal-200 hover:bg-gradient-to-r hover:from-teal-50 hover:to-green-50 hover:border-teal-300 hover:shadow-md"
+                      ? "bg-linear-to-r from-teal-800 to-teal-900 text-white shadow-lg shadow-teal-900/30 border-teal-700"
+                      : "bg-white text-teal-800 border-teal-200 hover:bg-linear-to-r hover:from-teal-50 hover:to-green-50 hover:border-teal-300 hover:shadow-md"
                   }`}
                 >
                   <span
                     className={`inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full transition-all ${
-                      active ? "bg-white/20 text-white" : "bg-gradient-to-br from-teal-100 to-green-100 text-teal-800"
+                      active ? "bg-white/20 text-white" : "bg-linear-to-br from-teal-100 to-green-100 text-teal-800"
                     }`}
                     aria-hidden
                   >
@@ -126,9 +124,9 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
 
         {/* Centered content card */}
         <div className="max-w-5xl mx-auto">
-          <article className="bg-gradient-to-br from-white to-teal-50/20 rounded-2xl p-5 sm:p-8 border-2 border-teal-100 shadow-xl hover:shadow-2xl transition-shadow">
+          <article className="bg-linear-to-br from-white to-teal-50/20 rounded-2xl p-5 sm:p-8 border-2 border-teal-100 shadow-xl hover:shadow-2xl transition-shadow">
             <header className="mb-6">
-              <h2 className="text-2xl sm:text-4xl font-serif font-bold bg-gradient-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent mb-3">{activeTopic?.title}</h2>
+              <h2 className="text-2xl sm:text-4xl font-serif font-bold bg-linear-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent mb-3">{activeTopic?.title}</h2>
               {activeTopic?.summary && <p className="text-sm sm:text-base text-stone-600">{activeTopic.summary}</p>}
             </header>
 
@@ -136,9 +134,9 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
               {(activeTopic?.sections || []).map((sec, i) => {
                 const Icon = ICON_MAP[sec.icon ?? activeTopic.icon ?? "MapPin"] ?? MapPin
                 return (
-                  <div key={i} className="bg-gradient-to-br from-stone-50 to-teal-50/30 rounded-xl p-4 sm:p-6 border border-teal-100 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md transition-shadow">
-                    <div className="min-w-[48px] sm:min-w-[56px] flex-shrink-0">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-teal-500 to-green-500 border border-teal-200 flex items-center justify-center shadow-md">
+                  <div key={i} className="bg-linear-to-br from-stone-50 to-teal-50/30 rounded-xl p-4 sm:p-6 border border-teal-100 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md transition-shadow">
+                    <div className="min-w-[48px] sm:min-w-[56px] shrink-0">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-linear-to-br from-teal-500 to-green-500 border border-teal-200 flex items-center justify-center shadow-md">
                         <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                       </div>
                     </div>
@@ -160,7 +158,7 @@ export default function ManifestoTabs({ topics }: { topics: Topic[] }) {
 
             {/* CTA block (if present) */}
             {activeTopic?.cta && (
-              <div className="mt-8 p-6 rounded-xl bg-gradient-to-r from-teal-800 to-green-800 text-white text-center shadow-lg">
+              <div className="mt-8 p-6 rounded-xl bg-linear-to-r from-teal-800 to-green-800 text-white text-center shadow-lg">
                 {activeTopic.cta.title && <h4 className="text-xl font-bold">{activeTopic.cta.title}</h4>}
                 {activeTopic.cta.text && <p className="mt-2">{activeTopic.cta.text}</p>}
                 <div className="mt-4">

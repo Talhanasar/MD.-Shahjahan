@@ -4,8 +4,7 @@ import React from "react"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { newsData, NewsItem } from "@/data/news"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 import { Button } from "@/components/ui/button"
 
 function mergeTranslations(source: NewsItem[], translated: any[] | undefined) {
@@ -24,8 +23,7 @@ function mergeTranslations(source: NewsItem[], translated: any[] | undefined) {
 }
 
 export default function NewsPage() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
   const translatedNews = (t as any).news as any[] | undefined
 
   const merged = mergeTranslations(newsData, translatedNews)
@@ -35,7 +33,7 @@ export default function NewsPage() {
 
   return (
     <main className="py-16">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         {/* Top-left back button */}
         <div className="mb-6">
           <Button asChild variant="ghost" className="text-stone-700 hover:bg-stone-50 hover:text-teal-900">

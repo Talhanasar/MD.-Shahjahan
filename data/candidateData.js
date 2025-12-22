@@ -17,7 +17,7 @@ export const candidateData = {
     banner: "/shahjahan/cover1.jpg",
     banner2: "/shahjahan/bnp_logo.png",
     electoralSymbol: "/shahjahan/marka.jpg",
-    bnpPoster: "/shahjahan/Bnp.jpg",
+    bnpPoster: "/shahjahan/bnp.png",
     getInvolved: "/shahjahan/shahjahan_last.png",
     sideImage: "/shahjahan/bnplogo.png"
   },
@@ -51,34 +51,11 @@ export const candidateData = {
     years: "40+",
     label: "Years of Service"
   },
-  // Video(s)
-  // Replaced single video with an array of videos. The old `video` key is kept for backward compatibility (it mirrors the first video).
-  videos: [
-    {
-  title: "BNP Nomination Announcement – Noakhali Subarnachar 4",
-  description: "Md. Shahjahan shares his reaction after being officially selected as the BNP candidate for Noakhali–Subarnachar 4 constituency.",
-  url: "https://www.youtube.com/embed/PZGM_IqSnOo",
-  thumbnail: "/shahjahan/video_thumb1.jpg"
-},
-{
-  title: "Support From District BNP Leadership",
-  description: "Statement of support from A.B.M. Zakaria, Joint Convenor of the District BNP, for the candidate and the BNP.",
-  url: "https://www.youtube.com/embed/R1dHf-Iq7zo",
-  thumbnail: "/shahjahan/video_thumb2.jpg"
-},
-{
-  title: "Md. Shahjahan on Politics & Vision",
-  description: "The candidate discusses his political stance, future plans, and dedication to public service.",
-  url: "https://www.youtube.com/embed/L-PArWRH1VQ",
-  thumbnail: "/shahjahan/video_thumb3.jpg"
-}
-
-  ],
   // Video
   video: {
     title: "A Message from Md. Shahjahan",
     description: "Listen to the vision for Noakhali-04 directly from your candidate.",
-    url: "https://www.youtube.com/embed/Ub_kbudLFbM",
+    url: "https://www.youtube.com/embed/L-PArWRH1VQ",
     thumbnail: ""
   },
   

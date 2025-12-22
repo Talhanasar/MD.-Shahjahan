@@ -2,15 +2,13 @@
 
 import Image from "next/image"
 import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function BannerSection() {
-  const { lang } = useLanguage()
-  const t = translations[lang]
+  const { language: lang, t, data } = useLanguageAndData()
 
   const altPrefix = (t?.banner?.altPrefix as string) ?? ""
-  const altText = `${altPrefix} ${candidateData.campaignSlogan}`.trim()
+  const altText = `${altPrefix} ${data.campaignSlogan}`.trim()
 
   return (
     <section className="w-full">
@@ -18,7 +16,7 @@ export default function BannerSection() {
         <div className="w-1/2 mx-auto overflow-hidden relative">
           <div className="relative w-full h-full">
             <Image
-              src={candidateData.images.banner}
+              src={data.images.banner}
               alt={altText}
               width={1000} // Fixed width
               height={450} // Fixed height

@@ -3,8 +3,7 @@
 import React from "react"
 import Link from "next/link"
 import { newsData, NewsItem } from "@/data/news"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 /**
  * LatestNewsNoSlug
@@ -28,8 +27,7 @@ function mergeTranslations(source: NewsItem[], translated: any[] | undefined) {
 }
 
 export default function LatestNews({ count = 4 }: { count?: number }) {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
   const translatedNews = (t as any).news as any[] | undefined
 
   const merged = mergeTranslations(newsData, translatedNews)
@@ -37,7 +35,7 @@ export default function LatestNews({ count = 4 }: { count?: number }) {
 
   return (
     <section id="latest-news" className="py-16">
-      <div className="container mx-auto sm:px-6 md:px-0">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         {/* Title centered on all screen sizes */}
         <h2 className="text-3xl font-serif font-semibold bg-gradient-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent mb-8 text-center">
           {(t as any).latestNews?.heading ?? "Latest News"}

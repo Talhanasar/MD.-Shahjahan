@@ -5,13 +5,10 @@ import { useRouter } from "next/navigation"
 import { ArrowLeft, Users } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function VolunteerFormPage() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
   const T = t as any // loosen typing for flexible translation keys
 
   // localized strings with fallbacks
@@ -20,7 +17,7 @@ export default function VolunteerFormPage() {
   const pageTitle = T.volunteer?.pageTitle ?? "Join Our Volunteer Team"
   const pageDescription =
     T.volunteer?.pageDescription ??
-    `Help us make a difference in our community. Fill out the form below to become a volunteer for ${candidateData.firstName}'s campaign.`
+    `Help us make a difference in our community. Fill out the form below to become a volunteer for ${data.firstName}'s campaign.`
 
   const personalInfoTitle = T.volunteer?.sections?.personalInfo?.title ?? "Personal Information"
   const addressInfoTitle = T.volunteer?.sections?.addressInfo?.title ?? "Address Information"
@@ -114,7 +111,7 @@ export default function VolunteerFormPage() {
 
   return (
     <div className="min-h-screen bg-stone-50 py-12">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto mb-8">
           <Button asChild variant="ghost" className="mb-6 text-stone-600 hover:text-stone-900 hover:bg-grey-700">

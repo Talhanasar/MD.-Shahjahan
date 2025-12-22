@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { LanguageProvider } from "@/components/LanguageProvider";
+import { LanguageProvider } from "@/store/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Form - Md. Shahjahan",

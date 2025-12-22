@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { LanguageProvider } from "@/components/LanguageProvider";
+import { LanguageProvider } from "@/store/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Md. Shahjahan - Official Campaign Site",
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased font-sans text-stone-900 selection:bg-teal-100 selection:text-teal-900">
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col w-full max-w-none">
           <LanguageProvider>
             <Navbar />
             <main className="flex-1">

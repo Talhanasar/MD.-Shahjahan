@@ -6,17 +6,15 @@ import { ArrowLeft, MessageSquare, Mail, Phone, MapPin } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { candidateData } from "@/data/candidateData"
-import { useLanguage } from "@/components/LanguageProvider"
-import { translations } from "@/data/translations"
+import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function ContactFormPage() {
-  const { lang } = useLanguage()
-  const t = translations[lang] ?? translations.en
+  const { language: lang, t, data } = useLanguageAndData()
 
   // localized strings with sensible fallbacks
   const backToHomeLabel = t.contact?.backToHome ?? "Back to Home"
   const contactBadge = t.contact?.badge ?? "Contact Form"
-  const pageTitle = t.contact?.pageTitle ?? `Contact ${candidateData.firstName} ${candidateData.lastName}`
+  const pageTitle = t.contact?.pageTitle ?? `Contact ${data.firstName} ${data.lastName}`
   const pageDescription =
     t.contact?.pageDescription ??
     "Have a question, concern, or suggestion? We want to hear from you. Fill out the form below and we'll get back to you as soon as possible."
@@ -92,7 +90,7 @@ export default function ContactFormPage() {
 
   return (
     <div className="min-h-screen bg-stone-50 py-12">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-4xl mx-auto mb-8">
           <Button asChild variant="ghost" className="mb-6 text-stone-600 hover:text-stone-900 hover:bg-grey-700">
@@ -132,10 +130,10 @@ export default function ContactFormPage() {
                   <div>
                     <h3 className="font-semibold text-stone-900 mb-1">{emailLabel}</h3>
                     <a
-                      href={`mailto:${candidateData.contact.email}`}
+                      href={`mailto:${data.contact.email}`}
                       className="text-stone-600 hover:text-teal-900 transition-colors text-sm break-all"
                     >
-                      {candidateData.contact.email}
+                      {data.contact.email}
                     </a>
                   </div>
                 </div>
@@ -147,10 +145,10 @@ export default function ContactFormPage() {
                   <div>
                     <h3 className="font-semibold text-stone-900 mb-1">{phoneLabel}</h3>
                     <a
-                      href={`tel:${candidateData.contact.phone}`}
+                      href={`tel:${data.contact.phone}`}
                       className="text-stone-600 hover:text-teal-900 transition-colors text-sm"
                     >
-                      {candidateData.contact.phone}
+                      {data.contact.phone}
                     </a>
                   </div>
                 </div>
@@ -162,9 +160,9 @@ export default function ContactFormPage() {
                   <div>
                     <h3 className="font-semibold text-stone-900 mb-1">{officeLabel}</h3>
                     <p className="text-stone-600 text-sm">
-                      {candidateData.contact.address.line1}
+                      {data.contact.address.line1}
                       <br />
-                      {candidateData.contact.address.line2}
+                      {data.contact.address.line2}
                     </p>
                   </div>
                 </div>
