@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import { Check } from "lucide-react"
+import Link from "next/link"
+import { Check, ArrowRight } from "lucide-react"
 import { useLanguageAndData } from "@/hooks/useLanguageAndData"
 
 export default function AboutSection() {
@@ -48,7 +49,7 @@ export default function AboutSection() {
                 lang === "en" ? "tracking-[0.3em]" : ""
               } text-teal-700`}
             >
-              {t?.about?.title ?? "About"}
+              {t?.about?.head ?? "About the Candidate"}
             </p>
             {/* Title with responsive font size */}
             <h2 className="text-3xl sm:text-4xl font-serif font-extrabold bg-linear-to-r from-teal-900 via-teal-800 to-green-800 bg-clip-text text-transparent leading-tight">
@@ -89,6 +90,16 @@ export default function AboutSection() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Read Full Biography CTA */}
+            <div className="pt-8 mt-8 border-t-2 border-teal-200/30">
+              <Link href="/about" className="inline-block">
+                <button className="group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-2xl hover:shadow-teal-500/40 transform hover:scale-105 duration-300">
+                  {lang === "en" ? "Read Full Biography" : "সম্পূর্ণ জীবনী পড়ুন"}
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>

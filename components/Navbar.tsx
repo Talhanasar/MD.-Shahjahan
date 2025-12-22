@@ -86,7 +86,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop / Large screens: show full nav at lg and up (so tablet uses the "tab" menu) */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => {
             const active = isActive(link.href)
             return (

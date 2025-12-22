@@ -11,7 +11,7 @@ export const candidateData = {
   
   // Images
   images: {
-    logo: "/shahjahan/pic_1.png",
+    logo: "/shahjahan/nav_logo.png",
     hero: "/shahjahan/pic_1.png",
     about: "/shahjahan/pic_2.jpg",
     banner: "/shahjahan/cover1.jpg",

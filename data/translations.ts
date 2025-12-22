@@ -3,6 +3,7 @@ export const translations = {
     nav: {
       home: "Home",
       manifesto: "Manifesto",
+      about: "About",
       gallery: "Gallery",
       contact: "Contact",
       firstName: "MD. SHAHJAHAN",
@@ -33,15 +34,51 @@ export const translations = {
     },
     partySlogan: "Bangladesh Zindabad",
     about: {
+      head: "About the Candidate",
       title: "Rooted in Noakhali, Driven by Progress.",
+      introduction: "Md. Shahjahan is a prominent leader of the Bangladesh Nationalist Party (BNP), representing the Noakhali-4 constituency (comprising Noakhali Sadar and Subarnachar). He is recognized as a veteran grassroots organizer and a high-ranking official within the party's central command.",
       paragraphs: [
-        "Md. Jahangir is a dedicated political leader representing Noakhali-04 under the Bangladesh Nationalist Party. He has actively worked to improve local infrastructure, education, and healthcare while advocating for transparency and accountability in governance.",
-        "His vision is simple yet powerful: a Noakhali-04 where every citizen has access to opportunities, justice is upheld, and development benefits all communities."
+        "Md. Shahjahan's political journey is deeply intertwined with the foundation and growth of the BNP. He joined the BNP during its inception in 1978, actively working alongside the party's founder, Ziaur Rahman.",
+        "He was first elected to the Jatiya Sangsad (Parliament) from Noakhali-4 in 1991. He successfully defended his seat in the 6th, 7th, and 8th parliaments, serving as an MP until 2006."
       ],
       experienceLabel: "Years of Service",
+      sections: [
+        {
+          title: "Central Leadership Positions",
+          items: [
+            "Vice Chairman of the BNP (current role)",
+            "Former Joint Secretary General",
+            "Coordinator for the party's grassroots reorganization efforts"
+          ]
+        },
+        {
+          title: "Local Leadership",
+          items: [
+            "President of the Noakhali District BNP for many years",
+            "Resigned from the local post in 2016 to focus on central responsibilities",
+            "Deep roots in the Noakhali Sadar region"
+          ]
+        },
+        {
+          title: "Political Ideology & Philosophy",
+          items: [
+            "Believes in 'politics based on principles, not personal interest'",
+            "Maintained a strong following in his constituency for over three decades",
+            "Viewed as a 'son of the soil' reflecting the region's historical support for BNP"
+          ]
+        },
+        {
+          title: "Recent Activities & Challenges",
+          items: [
+            "Arrested by RAB in January 2015 on allegations of anti-government activities",
+            "Given responsibility for nominating BNP candidates for municipal elections in 2015",
+            "Contested 2008 and 2018 general elections"
+          ]
+        }
+      ],
       skills: {
-        left: ["Community Leadership", "Education Advocate", "Policy Development"],
-        right: ["Infrastructure Planning", "Youth Empowerment", "Economic Growth Strategy"]
+        left: ["Community Leadership", "Grassroots Organizing", "Parliamentary Service"],
+        right: ["Policy Development", "Party Management", "Regional Influence"]
       }
     },
     gallery: {
@@ -83,7 +120,7 @@ export const translations = {
       volunteerText:
         "Join our dedicated team on the ground. Help organize events, spread the message, and drive change in your local area.",
       volunteerButton: "Join the Team",
-      contactTitle: "Contact the Office",
+      contactTitle: "Contact the Candidate",
       contactText:
         "Have a question, concern, or suggestion? Reach out directly to the office. We want to hear from you.",
       contactButton: "Send a Message"
@@ -796,6 +833,7 @@ export const translations = {
     nav: {
       home: "হোম",
       manifesto: "ইস্তাহার",
+      about: "সম্পর্কে",
       gallery: "গ্যালারি",
       contact: "যোগাযোগ",
       firstName: "মোঃ শাহজাহান",
@@ -826,12 +864,48 @@ export const translations = {
     },
     partySlogan: "বাংলাদেশ জিন্দাবাদ",
     about: {
+      head: "প্রার্থী সম্পর্কে",
       title: "নোয়াখালীতে গভীর শিকড়, উন্নতির পথে এগিয়ে।",
+      introduction: "মোঃ শাহজাহান বাংলাদেশ জাতীয়তাবাদী দলের (বিএনপি) একজন প্রধান নেতা, যিনি নোয়াখালী-04 আসন (নোয়াখালী সদর এবং সুবর্ণচর সহ) প্রতিনিধিত্ব করেন। তিনি একজন অভিজ্ঞ তৃণমূল সংগঠক এবং পার্টির কেন্দ্রীয় কমান্ডে উচ্চ-পদস্থ কর্মচারী হিসাবে স্বীকৃত।",
       paragraphs: [
         "মোঃ জাহাঙ্গীর একজন নিবেদিত রাজনৈতিক নেতা, যিনি বাংলাদেশ জাতীয়তাবাদী দলের পক্ষে নোয়াখালী-০৪ প্রতিনিধিত্ব করেন। তিনি স্থানীয় অবকাঠামো, শিক্ষা এবং স্বাস্থ্যসেবার উন্নয়নে কাজ করেছেন এবং সরকারি নীতিতে স্বচ্ছতা ও জবাবদিহিতা প্রতিষ্ঠায় কাজ করে যাচ্ছেন।",
         "তার দৃষ্টি সহজ কিন্তু শক্তিশালী: একটি নোয়াখালী-০৪ যেখানে প্রতিটি নাগরিক সুযোগ পায়, ন্যায় প্রতিষ্ঠিত থাকে, এবং উন্নয়ন সকলের জন্য উপকার বয়ে আনে।"
       ],
       experienceLabel: "সেবার বছর",
+      sections: [
+        {
+          title: "কেন্দ্রীয় নেতৃত্বের পদ",
+          items: [
+            "বিএনপির সহ-সভাপতি (বর্তমান ভূমিকা)",
+            "প্রাক্তন যৌথ মহাসচিব",
+            "পার্টির তৃণমূল পুনর্গঠন প্রচেষ্টার সমন্বয়কারী"
+          ]
+        },
+        {
+          title: "স্থানীয় নেতৃত্ব",
+          items: [
+            "দীর্ঘদিনের জন্য নোয়াখালী জেলা বিএনপির সভাপতি",
+            "কেন্দ্রীয় দায়িত্বের উপর ফোকাস করার জন্য 2016 সালে স্থানীয় পদ থেকে অবসর নেন",
+            "নোয়াখালী সদর অঞ্চলে গভীর শিকড়"
+          ]
+        },
+        {
+          title: "রাজনৈতিক মতাদর্শ এবং দর্শন",
+          items: [
+            "'নীতি-ভিত্তিক রাজনীতি, ব্যক্তিগত স্বার্থের নীতি নয়'-তে বিশ্বাস করেন",
+            "তিন দশকেরও বেশি সময় ধরে তার নির্বাচনী এলাকায় শক্তিশালী অনুসরণ বজায় রেখেছেন",
+            "অঞ্চলের বিএনপির ঐতিহাসিক সমর্থন প্রতিফলিত 'মাটির সন্তান' হিসাবে দেখা হয়"
+          ]
+        },
+        {
+          title: "সাম্প্রতিক কার্যক্রম এবং চ্যালেঞ্জ",
+          items: [
+            "2015 সালের জানুয়ারিতে সরকার-বিরোধী কার্যকলাপের অভিযোগে র‍্যাব দ্বারা গ্রেপ্তার",
+            "2015 সালে পৌর নির্বাচনের জন্য বিএনপি প্রার্থী মনোনীতকরণের দায়িত্ব প্রদান করা হয়",
+            "2008 এবং 2018 সালের সাধারণ নির্বাচনে অংশগ্রহণ করেছেন"
+          ]
+        }
+      ],
       skills: {
         left: ["কমিউনিটি নেতৃত্ব", "শিক্ষা সমর্থক", "নীতি প্রণয়ন"],
         right: ["অবকাঠামো পরিকল্পনা", "যুব ক্ষমতা", "অর্থনৈতিক বৃদ্ধির কৌশল"]
@@ -877,9 +951,9 @@ export const translations = {
       volunteerText:
         "আমাদের মাঠে কার্যকর দল সাথে যোগ দিন। ইভেন্ট সংগঠনে সাহায্য করুন, বার্তা ছড়ান এবং আপনার এলাকার পরিবর্তন চালান।",
       volunteerButton: "টিমে যোগ দিন",
-      contactTitle: "অফিসে যোগাযোগ করুন",
+      contactTitle: "প্রার্থীর সাথে যোগাযোগ করুন",
       contactText:
-        "আপনার যদি কোনো প্রশ্ন, উদ্বেগ বা পরামর্শ থাকে — সরাসরি অফিসে যোগাযোগ করুন। আমরা আপনার মতামত শুনতে চাই।",
+        "আপনার যদি কোনো প্রশ্ন, উদ্বেগ বা পরামর্শ থাকে — সরাসরি যোগাযোগ করুন। আমরা আপনার মতামত শুনতে চাই।",
       contactButton: "বার্তা পাঠান"
     },
     manifesto: {
