@@ -114,15 +114,29 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-stone-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <p>{data.footer.copyright}</p>
-          <div className="flex gap-8">
-            <Link href="#" className="hover:text-teal-400 transition-colors">
-              {privacyLabel}
-            </Link>
-            <Link href="#" className="hover:text-teal-400 transition-colors">
-              {termsLabel}
-            </Link>
+        <div className="border-t border-stone-800 mt-16 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm mb-6">
+            <p>{data.footer.copyright}</p>
+            <div className="flex gap-8">
+              <Link href="#" className="hover:text-teal-400 transition-colors">
+                {privacyLabel}
+              </Link>
+              <Link href="#" className="hover:text-teal-400 transition-colors">
+                {termsLabel}
+              </Link>
+            </div>
+          </div>
+          
+          <div className="border-t border-stone-700 pt-6 flex flex-col md:flex-row justify-center items-center gap-6 text-xs text-stone-500">
+            <div className="text-center md:text-left">
+              <p className="text-stone-400 font-medium mb-1">{lang === 'bn' ? 'দ্বারা বিকশিত' : 'Developed by'}</p>
+              <p className="text-teal-500 font-semibold">QP Consultancy Group</p>
+            </div>
+            <div className="hidden md:block w-px h-8 bg-stone-700"></div>
+            <div className="text-center md:text-left">
+              <p className="text-stone-400 font-medium mb-1">{lang === 'bn' ? 'দ্বারা স্পন্সর করা' : 'Sponsored by'}</p>
+              <p className="text-teal-500 font-semibold">Jakir Hossain</p>
+            </div>
           </div>
         </div>
       </div>
