@@ -96,7 +96,7 @@ export default function HeroSection() {
 
           {/* Animated Center Element (Dhan) - Middle 2 columns */}
           <div className="lg:col-span-2 absolute top-6 right-6 lg:relative lg:top-[40%] xl:top-[50%] lg:right-auto lg:-translate-y-[50%] lg:order-2 flex justify-center items-center pointer-events-none z-30 lg:py-0">
-             <div className="relative w-16 h-16 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 animate-float-up">
+             <div className="relative w-16 h-16 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56 animate-float-dhan">
                <Image
                  src="/shahjahan/dhan.png"
                  alt="Sheaf of Paddy"
